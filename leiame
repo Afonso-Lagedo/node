@@ -34,3 +34,6 @@ yarn add express
 
 ####Executar
 No console: node index.js (node NOME DO ARQUIVO) A CADA ALTERAÇÃO
+
+####software para requisições: Insomnia
+https://insomnia.rest/download
