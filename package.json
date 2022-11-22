@@ -1,0 +1,11 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Afonso-cmd/node.git",
+  "author": "<afonso.ur@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
