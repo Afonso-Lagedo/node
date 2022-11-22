@@ -1,15 +1,15 @@
-#Dependência
+####Dependência
 Node:https://nodejs.org/en/
 yarn:npm install --global yarn
 
-#Instalação via terminal dentro da pasta do projeto
+####Instalação via terminal dentro da pasta do projeto
 yarn init -y
 
-#Caso erro de execução de script: (NO WINDOWS: WINDOWS POWERSHELL[como administrador])
+####Caso erro de execução de script: (NO WINDOWS: WINDOWS POWERSHELL[como administrador])
 Get-ExecutionPolicy #PARA VERIFICAR
 Set-ExecutionPolicy RemoteSigned # PARA ALTERAR
 
-####
+#
 Restricted
 Não carrega nem executa arquivos de configuração e/ou scripts do Powershell.
 
@@ -27,7 +27,10 @@ Não há nenhuma restrição.
 
 Undefined
 Remove a política de execução atual. A não ser que ela esteja definida numa diretiva de grupo.
-####
+#
 
-#Express
+####Express
 yarn add express
+
+####Executar
+No console: node index.js (node NOME DO ARQUIVO)
