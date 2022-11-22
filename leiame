@@ -34,6 +34,16 @@ yarn add express
 
 ####Executar
 No console: node index.js (node NOME DO ARQUIVO) A CADA ALTERAÇÃO
+#Para execução automática:
+yarn add nodemon -D
+nodemon index.js (EXECUTAR)
+#No arquico package.json (antes de DEPENDENCIES):
+"scripts":{
+    "dev": "nodemon index.js"
+},
+#no console
+yarn dev
+#caso errado faça o caso:####Caso erro de execução de script: (NO WINDOWS: WINDOWS POWERSHELL[como administrador])
 
 ####software para requisições: Insomnia
 https://insomnia.rest/download
