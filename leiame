@@ -33,4 +33,4 @@ Remove a política de execução atual. A não ser que ela esteja definida numa 
 yarn add express
 
 ####Executar
-No console: node index.js (node NOME DO ARQUIVO)
+No console: node index.js (node NOME DO ARQUIVO) A CADA ALTERAÇÃO

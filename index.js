@@ -3,30 +3,30 @@ const express = require('express');//para usar o express
 //Necessita de um servidor:
 const server = express();
 
-//Parâmetros(requisição, resposta)(1º: rota, 2º: função)
-
-/*GET exemplo simples
-
-server.get('/curso', () => {
-    console.log('Acessou a rota!');
-})
-
-*/
-
-/*GET res
-
-server.get('/curso', (req, res)=>{
-    return res.send('Olá mundo.');
-})
-
-*/
-
 //GET JSON
 
+/*Exemplo
+Query Params = ?nome=NodeJS
+Route Params = /curso/2
+Request Body = { nomw: 'Nodejs', tipo: 'Backend' }
+*/
+
+
+/*
+Exemplo 1
+
 server.get('/curso', (req, res)=>{
-    return res.json({
-        curso: 'Node JS'
-    });
+    const nome = req.query.nome;
+    
+    return res.json({curso: `Aprendendo ${nome}`});
+})
+
+*/
+
+server.get('/curso/:id', (req, res)=>{ // :id esperando um route params 
+    const id = req.params.id;
+    
+    return res.json({curso: `Curso ID: ${id}`});
 })
 
 
