@@ -8,10 +8,38 @@ server.use(express.json());
 
 const cursos = ['Node JS', 'JavaScript', 'React', 'React Native'];//simulando dados salvos
 
+//Middlewares global
+server.use((req, res, next)=>{ //next: continuidade de fluxo
+    console.log(`URL CHAMADA: ${req.url}`);
+    return next();//para não para a aplicação
+});
+
+//Middlewares em forma de função
+function verificaCurso(req, res, next){
+    if(!req.body.name){
+        return res.status(400).json({error:"nome obrigatório"});
+    }
+
+    return next();
+}
+
+function verificaIndex(req, res, next){
+    const curso = cursos[req.params.index];
+
+    if(!curso){
+        return res.status(400).json({error:"index não existe"});
+    }
+
+    req.curso = curso;
+
+    return next();
+}
+
 //GET unidade
-server.get('/cursos/:index', (req, res)=>{ // :index simulando id
-    const {index} = req.params;
-    return res.json(cursos[index]);
+server.get('/cursos/:index',verificaIndex, (req, res)=>{ // :index simulando id
+    /*const {index} = req.params;
+    return res.json(cursos[index]);*/
+    return res.json(req.curso);
 })
 
 //GET coletivo
@@ -20,7 +48,7 @@ server.get('/cursos', (req, res)=>{
 });
 
 //POST
-server.post('/cursos', (req, res)=>{
+server.post('/cursos', verificaCurso ,(req, res)=>{
     const { name } = req.body;
     cursos.push(name);
 
@@ -28,7 +56,7 @@ server.post('/cursos', (req, res)=>{
 });
 
 //PUT
-server.put('/cursos/:index', (req, res)=>{
+server.put('/cursos/:index', verificaCurso, verificaIndex ,(req, res)=>{
     const { index } = req.params;
     const { name } = req.body;
 
@@ -38,7 +66,7 @@ server.put('/cursos/:index', (req, res)=>{
 })
 
 //DELETE
-server.delete('/cursos/:index', (req, res)=>{
+server.delete('/cursos/:index', verificaIndex,(req, res)=>{
     const { index } = req.params;
 
     cursos.splice(index, 1);
